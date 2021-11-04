@@ -51,7 +51,7 @@ const coffees = [
   );
   container.innerHTML = output;
 };
-*/
+
 document.addEventListener("DOMContentLoaded", showCoffees);
 
 if ("serviceWorker" in navigator) {
@@ -62,3 +62,4 @@ if ("serviceWorker" in navigator) {
       .catch(err => console.log("service worker not registered", err));
   });
 }
+*/
