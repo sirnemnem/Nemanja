@@ -73,6 +73,7 @@ function getUserMedia(constraints) {
     });
   }
 }
+*/
 
 function getStream (type) {
   if (!navigator.mediaDevices && !navigator.getUserMedia && !navigator.webkitGetUserMedia &&
@@ -102,7 +103,7 @@ function getStream (type) {
       alert('Error: ' + err);
     });
 }
-*/
+
 
 function getUserMedia(options, successCallback, failureCallback) {
   var api = navigator.getUserMedia || navigator.webkitGetUserMedia ||
