@@ -54,6 +54,7 @@ const coffees = [
 
 document.addEventListener("DOMContentLoaded", showCoffees);
 */
+<<<<<<< HEAD
 
 function getUserMedia(constraints) {
   // if Promise-based API is available, use it
@@ -175,6 +176,8 @@ function download() {
 
 
 
+=======
+>>>>>>> parent of bc9c6f9 (Update app.js)
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     navigator.serviceWorker
