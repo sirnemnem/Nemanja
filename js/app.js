@@ -198,10 +198,35 @@ function takePhoto() {
     .then(blob => {
       var theImageTag = document.getElementById("imageTag");
       theImageTag.src = URL.createObjectURL(blob);
+      toDataURL(theImageTag.src, function(dataUrl) {
+      //console.log('RESULT:', dataUrl)
+      localStorage['icon'] = dataUrl;
+    })
     })
     .catch(err => alert('Error: ' + err));
 }
+function toDataURL(url, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.onload = function() {
+    var reader = new FileReader();
+    reader.onloadend = function() {
+      callback(reader.result);
+    }
+    reader.readAsDataURL(xhr.response);
+  };
+  xhr.open('GET', url);
+  xhr.responseType = 'blob';
+  xhr.send();
+}
 
+
+
+function loadPhoto() {
+
+
+  //document.querySelector("#myicon").src = imageUrl;
+  document.getElementById("myicon").src = localStorage['icon'];
+}
 /*
 function recorderOnDataAvailable(event) {
   if (event.data.size == 0) return;
