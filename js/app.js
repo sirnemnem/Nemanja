@@ -37,7 +37,7 @@ const coffees = [
     image: "images/coffee9.jpg"
   }
 ];
-const showCoffees = () => {
+/* const showCoffees = () => {
   let output = "";
   coffees.forEach(
     ({ name, image }) =>
@@ -51,7 +51,7 @@ const showCoffees = () => {
   );
   container.innerHTML = output;
 };
-
+*/
 document.addEventListener("DOMContentLoaded", showCoffees);
 
 if ("serviceWorker" in navigator) {
