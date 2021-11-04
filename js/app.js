@@ -204,6 +204,7 @@ function takePhoto() {
     })
     })
     .catch(err => alert('Error: ' + err));
+    
 }
 function toDataURL(url, callback) {
   var xhr = new XMLHttpRequest();

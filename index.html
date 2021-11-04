@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -31,21 +32,21 @@
       </nav>
       <div class="columns">
         <div class="column">
-          <p><button type="button" onclick="getStream('video')">Grab video</button></p>
+          <p><button type="button" class="btn btn-danger" onclick="getStream('video')">Grab video</button></p>
 
           <video controls autoplay style="height:180px; width: 240px;"></video>
         </div>
 
         <div class="column">
-          <p><button onclick="getStream()">Start recording</button></p>
-          <p><button onclick="download()">Download!</button></p>
+          <p><button type="button" class="btn btn-danger" onclick="getStream()">Start recording</button></p>
+          <p><button type="button" class="btn btn-danger" onclick="download()">Download!</button></p>
         </div>
         <div class="column">
-          <p><button onclick="takePhoto()">Take Photo!</button></p>
+          <p><button type="button" class="btn btn-danger" onclick="takePhoto()">Take Photo!</button></p>
           <p><img id="imageTag" width="180" height="240"></p>
         </div>
         <div class="column">
-          <p><button onclick="loadPhoto()">Load Photo!</button></p>
+          <p><button type="button" class="btn btn-danger" onclick="loadPhoto()">Load Photo!</button></p>
           <p><img id="myicon" width="180" height="240"></p>
         </div>
       </div>
