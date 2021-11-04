@@ -114,6 +114,8 @@ function getUserMedia(options, successCallback, failureCallback) {
 }
 
 var theStream;
+var theRecorder;
+var recordedChunks = [];
 
 function getStream() {
   if (!navigator.getUserMedia && !navigator.webkitGetUserMedia &&
@@ -128,6 +130,7 @@ function getStream() {
 
   getUserMedia(constraints, function (stream) {
     var mediaControl = document.querySelector('video');
+
     if ('srcObject' in mediaControl) {
       mediaControl.srcObject = stream;
     } else if (navigator.mozGetUserMedia) {
@@ -135,11 +138,48 @@ function getStream() {
     } else {
       mediaControl.src = (window.URL || window.webkitURL).createObjectURL(stream);
     }
+
     theStream = stream;
+    try {
+      recorder = new MediaRecorder(stream, {mimeType : "video/webm"});
+    } catch (e) {
+      console.error('Exception while creating MediaRecorder: ' + e);
+      return;
+    }
+    theRecorder = recorder;
+    console.log('MediaRecorder created');
+    recorder.ondataavailable = recorderOnDataAvailable;
+    recorder.start(100);
   }, function (err) {
     alert('Error: ' + err);
   });
 }
+
+function recorderOnDataAvailable(event) {
+  if (event.data.size == 0) return;
+  recordedChunks.push(event.data);
+}
+
+function download() {
+  console.log('Saving data');
+  theRecorder.stop();
+  theStream.getTracks()[0].stop();
+
+  var blob = new Blob(recordedChunks, {type: "video/webm"});
+  var url = (window.URL || window.webkitURL).createObjectURL(blob);
+  var a = document.createElement("a");
+  document.body.appendChild(a);
+  a.style = "display: none";
+  a.href = url;
+  a.download = 'test.webm';
+  a.click();
+
+  // setTimeout() here is needed for Firefox.
+  setTimeout(function () {
+      (window.URL || window.webkitURL).revokeObjectURL(url);
+  }, 100);
+}
+
 
 function takePhoto() {
   if (!('ImageCapture' in window)) {
