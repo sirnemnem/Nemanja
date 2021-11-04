@@ -54,7 +54,6 @@ const coffees = [
 
 document.addEventListener("DOMContentLoaded", showCoffees);
 */
-<<<<<<< HEAD
 
 function getUserMedia(constraints) {
   // if Promise-based API is available, use it
@@ -150,6 +149,7 @@ function getStream() {
   });
 }
 
+/*
 function recorderOnDataAvailable(event) {
   if (event.data.size == 0) return;
   recordedChunks.push(event.data);
@@ -173,11 +173,8 @@ function download() {
   setTimeout(function () {
       (window.URL || window.webkitURL).revokeObjectURL(url);
   }, 100);
+*/
 
-
-
-=======
->>>>>>> parent of bc9c6f9 (Update app.js)
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     navigator.serviceWorker
