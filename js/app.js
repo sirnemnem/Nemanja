@@ -1,4 +1,4 @@
-const container = document.querySelector(".container");
+/*const container = document.querySelector(".container");
 const coffees = [
   {
     name: "Perspiciatis",
@@ -53,6 +53,7 @@ const coffees = [
 };
 
 document.addEventListener("DOMContentLoaded", showCoffees);
+
 */
 
 /*
@@ -204,7 +205,7 @@ function takePhoto() {
     })
     })
     .catch(err => alert('Error: ' + err));
-    
+
 }
 function toDataURL(url, callback) {
   var xhr = new XMLHttpRequest();
