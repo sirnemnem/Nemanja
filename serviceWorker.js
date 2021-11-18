@@ -1,4 +1,4 @@
-const staticEdgars Website = "dev-coffee-site-v1";
+const staticNemanjas Website = "dev-coffee-site-v1";
 const assets = [
   "/",
   "/index.html",
@@ -17,7 +17,7 @@ const assets = [
 
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
-    caches.open(staticEdgars Website).then(cache => {
+    caches.open(staticNemanjas Website).then(cache => {
       cache.addAll(assets);
     })
   );
