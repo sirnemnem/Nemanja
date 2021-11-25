@@ -41,7 +41,9 @@ function persistentNotification() {
   } catch (err) {
     alert('Notification API error: ' + err);
   }
-  var idleDetector;
+}
+
+var idleDetector;
 
 function handleIdleChange() { 
   const timeBadge = new Date().toTimeString().split(' ')[0];
@@ -66,7 +68,9 @@ function startDetector() {
   } catch (e) {
     alert('Idle Detection error:' + e);
   }
-  if ('permissions' in navigator) {
+}
+
+if ('permissions' in navigator) {
   var logTarget = document.getElementById('logTarget');
 
   function handleChange(permissionName, newState) {
@@ -132,7 +136,8 @@ function startDetector() {
     navigator.getUserMedia({audio: true}, noop, noop)
   }
 }
-  function scheduleNotification() {
+
+function scheduleNotification() {
   if (!('Notification' in window)) {
     alert('Notification API not supported');
     return;
@@ -157,3 +162,4 @@ function startDetector() {
     .catch((err) => {
       alert('Notification Trigger API error: ' + err);
     });
+}
